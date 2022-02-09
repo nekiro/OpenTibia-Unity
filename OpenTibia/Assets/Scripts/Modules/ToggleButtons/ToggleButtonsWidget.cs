@@ -43,6 +43,8 @@ namespace OpenTibiaUnity.Modules.ToggleButtons
         private bool _handlingBattle = false;
         private bool _handlingBuddy = false;
 
+        protected UI.Legacy.MessageWidget _messageWidget;
+
         // properties
         protected Inventory.InventoryWidget inventoryWindow {
             get => OpenTibiaUnity.GameManager.GetModule<Inventory.InventoryWidget>();
@@ -161,7 +163,25 @@ namespace OpenTibiaUnity.Modules.ToggleButtons
         }
 
         public void OnLogoutButtonClick() {
+            if (_messageWidget != null)
+                _messageWidget.Hide();
 
+            _messageWidget = UI.Legacy.MessageWidget.CreateYesNoPopUp(transform.parent, "Logout", "Are you sure you want to logout?", OnPopupYesClick, OnPopupNoClick);
+            _messageWidget.maxSize = new Vector2(500, 250);
+        }
+
+        protected void OnPopupYesClick() {
+            _messageWidget = null;
+
+            var gameManager = OpenTibiaUnity.GameManager;
+            if (gameManager.IsGameRunning) {
+                var protocolGame = OpenTibiaUnity.ProtocolGame;
+                protocolGame.Disconnect();
+            }
+        }
+
+        protected void OnPopupNoClick() {
+            _messageWidget = null;
         }
 
         public void OnStoreButtonClick() {

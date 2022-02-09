@@ -131,6 +131,14 @@ namespace OpenTibiaUnity.UI.Legacy
             return widget;
         }
 
+        public static MessageWidget CreateYesNoPopUp(Transform parent, string title, string message, UnityAction onYes, UnityAction onNo) {
+            var widget = CreateMessageWidget(parent, title, message);
+            widget.AddButton(PopUpButtonMask.Yes, KeyCode.Return, onYes);
+            widget.AddButton(PopUpButtonMask.No, onNo);
+            widget.KeyMask = PopUpKeyMask.Escape;
+            return widget;
+        }
+
         public static MessageWidget CreateMessageWidget(Transform parent, string title, string message) {
             MessageWidget instance = InstantiateMessageWidgetObject(parent);
             instance.title = title;
