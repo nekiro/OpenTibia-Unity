@@ -115,9 +115,9 @@ namespace OpenTibiaUnity.Core.WorldMap
 
             return otherObj;
         }
-        public Appearances.ObjectInstance DeleteObject(UnityEngine.Vector3Int mapPosition, int stackPos) {
+        public Appearances.ObjectInstance DeleteObject(UnityEngine.Vector3Int mapPosition, int stackPos, bool visibleRemark = true) {
             Appearances.ObjectInstance otherObj = GetField(mapPosition).DeleteObject(stackPos);
-            if (!!otherObj && otherObj.IsCreature)
+            if (visibleRemark && !!otherObj && otherObj.IsCreature)
                 OpenTibiaUnity.CreatureStorage.MarkOpponentVisible(otherObj.Data, false);
 
             if (!!otherObj)
@@ -677,13 +677,10 @@ namespace OpenTibiaUnity.Core.WorldMap
             if (ticks >= _objectNextUpdate) {
                 for (int i = _effectsCount - 1; i >= 0; i--) {
                     var effect = _effects[i];
-                    if (!effect.Animate(ticks)) {
-                        // todo
-                        // destroy textmesh  in a separate job
+                    if (!effect.Animate(ticks))
                         DeleteEffect(i);
-                    } else if (effect is Appearances.MissileInstance missleEffect) {
+                    else if (effect is Appearances.MissileInstance missleEffect)
                         MoveEffect(missleEffect.Position, i);
-                    }
                 }
 
                 for (int i = Constants.NumFields - 1; i >= 0; i--) {
@@ -714,8 +711,6 @@ namespace OpenTibiaUnity.Core.WorldMap
                         }
 
                         messageBox.RemoveMessages();
-                        // todo, destroy text mesh in a separate job :)
-                        //messageBox.DestroyTextMesh();
                         MessageBoxes.RemoveAt(i);
                         LayoutOnscreenMessages = true;
                     }
@@ -773,7 +768,7 @@ namespace OpenTibiaUnity.Core.WorldMap
             for (int i = 0; i < field.ObjectsCount; i++) {
                 var @object = field.ObjectsNetwork[i];
                 if (@object.IsCreature && creature == null) {
-                    creature = OpenTibiaUnity.CreatureStorage.GetCreature(@object.Data);
+                    creature = OpenTibiaUnity.CreatureStorage.GetCreatureById(@object.Data);
                     if (!creature.Trapper && creature.Unpassable)
                         return creature.IsHuman && OpenTibiaUnity.GameManager.ClientVersion > 953
                             ? EnterPossibleFlag.PossibleNoAnimation : EnterPossibleFlag.NotPossible;
