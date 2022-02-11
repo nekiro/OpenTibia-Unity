@@ -3,8 +3,7 @@
 A collection of projects to boost OpenTibia development!
 
 ### Wiki
-Old:
-https://slavi.gitbook.io/opentibiaunity/
+https://nekiro.gitbook.io/opentibia-unity/
 
 
 ### Origin
