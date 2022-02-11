@@ -50,7 +50,6 @@ namespace OpenTibiaUnityEditor.Modules.Battle
             EditorGUI.indentLevel++;
             filtersPanelActive = EditorGUILayout.Foldout(filtersPanelActive, "Filters Panel", true);
             if (filtersPanelActive) {
-
                 EditorGUILayout.PropertyField(_filterPlayersToggle, new GUIContent("Players Toggle"));
                 EditorGUILayout.PropertyField(_filterNPCsToggle, new GUIContent("NPCs Toggle"));
                 EditorGUILayout.PropertyField(_filterMonstersToggle, new GUIContent("Monsters Toggle"));

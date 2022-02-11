@@ -1065,6 +1065,14 @@
         Store = 1,
         GoldenOutfit = 2,
     }
+ 
+    public enum BuddyStatus : byte
+    {
+        Offline = 0,
+        Online = 1,
+        Pending = 2,
+        Training = 3
+    }
 
     public enum GameFeature
     {

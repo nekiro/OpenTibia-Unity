@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using OpenTibiaUnity.Modules.Console;
+using System.Collections.Generic;
 using UnityEngine.Events;
 
 namespace OpenTibiaUnity.Core.Chat
@@ -88,6 +89,13 @@ namespace OpenTibiaUnity.Core.Chat
 
             if (_ownPrivateChannelId == channelId)
                 _ownPrivateChannelId = -1;
+        }
+
+        public void SelectChannel(Utils.UnionStrInt channelId) {
+            var channel = GetChannel(channelId);
+            if (channel != null) {
+                OpenTibiaUnity.GameManager.GetModule<ConsoleModule>().SelectChannel(channel, false);
+            }
         }
 
         public Channel GetChannelAt(int channelIndex) {

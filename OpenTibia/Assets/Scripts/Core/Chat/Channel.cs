@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using OpenTibiaUnity.Modules.Console;
+using System.Collections.Generic;
 using UnityEngine.Events;
 
 namespace OpenTibiaUnity.Core.Chat
@@ -50,6 +51,10 @@ namespace OpenTibiaUnity.Core.Chat
         public void AppendMessage(ChannelMessage message) {
             _history.AddItem(message);
             onAddChannelMessage.Invoke(this, message);
+        }
+
+        public void Select() {
+            OpenTibiaUnity.GameManager.GetModule<ConsoleModule>().SelectChannel(this, false);
         }
 
         public void PlayerJoined(string name) {

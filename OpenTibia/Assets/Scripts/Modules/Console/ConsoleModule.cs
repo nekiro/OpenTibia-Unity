@@ -80,13 +80,7 @@ namespace OpenTibiaUnity.Modules.Console
         private void OnAddChannel(Channel channel) {
             // get the channel button if exists, force create if not
             var channelButton = GetChannelTab(channel, true);
-
-            // if there is no channel or this channel is NPC, then select it!
-            if (channel.Id == ChatStorage.NpcChannelId || _activeChannel == null)
-                SelectChannelButton(channelButton);
-            else
-                channelButton.state = ChannelButtonState.Inactive;
-
+            SelectChannelButton(channelButton);
             channel.onAddChannelMessage.AddListener(OnAddChannelMessage);
         }
 

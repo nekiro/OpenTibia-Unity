@@ -33,7 +33,6 @@ namespace OpenTibiaUnityEditor.Modules.ToggleButtons
             _battleToggle = serializedObject.FindProperty("_battleToggle");
             _buddyToggle = serializedObject.FindProperty("_buddyToggle");
             _questlogButton = serializedObject.FindProperty("_questlogButton");
-            _questlogButton = serializedObject.FindProperty("_questlogButton");
             _rewardWallButton = serializedObject.FindProperty("_rewardWallButton");
             _spellListToggle = serializedObject.FindProperty("_spellListToggle");
             _unjustFragsToggle = serializedObject.FindProperty("_unjustFragsToggle");

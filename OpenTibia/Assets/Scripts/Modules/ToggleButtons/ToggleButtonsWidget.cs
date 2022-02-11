@@ -134,7 +134,9 @@ namespace OpenTibiaUnity.Modules.ToggleButtons
                 _buddyToggle.isOn = value;
                 inventoryWindow.buddyToggle.isOn = value;
 
+                ToggleSidebarWidgetWithPrefab(ModulesManager.Instance.BuddyListWidgetPrefab, value);
             } catch (System.Exception) {
+
             } finally {
                 _handlingBuddy = false;
             }

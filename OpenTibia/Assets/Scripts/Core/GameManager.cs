@@ -134,6 +134,7 @@ namespace OpenTibiaUnity.Core
         public Magic.SpellStorage SpellStorage { get; private set; }
         public Store.StoreStorage StoreStorage { get; private set; }
         public Cyclopedia.CyclopediaStorage CyclopediaStorage { get; private set; }
+        public BuddyList.BuddyStorage BuddyStorage { get; private set; }
         public Communication.Game.ProtocolGame ProtocolGame { get; set; }
         public int PendingCharacterIndex { get; set; } = -1;
         public UnityEvent onSecondaryTimeCheck { get; private set; }
@@ -292,6 +293,7 @@ namespace OpenTibiaUnity.Core
             SpellStorage = new Magic.SpellStorage();
             StoreStorage = new Store.StoreStorage();
             CyclopediaStorage = new Cyclopedia.CyclopediaStorage();
+            BuddyStorage = new BuddyList.BuddyStorage();
 
             // Load options
             OptionStorage.LoadOptions();
@@ -369,7 +371,9 @@ namespace OpenTibiaUnity.Core
             if (IsGameRunning)
                 ProtocolGame.Disconnect(); // force disconnection (by trying to logout)
 
-            AppearanceStorage.UnloadSpriteProvider();
+            if (AppearanceStorage != null)
+                AppearanceStorage.UnloadSpriteProvider();
+
             AssetBundle.UnloadAllAssetBundles(true);
 
             onSecondaryTimeCheck.RemoveAllListeners();
@@ -388,6 +392,7 @@ namespace OpenTibiaUnity.Core
             WorldMapRenderer = null;
             ChatStorage = null;
             MessageStorage = null;
+            BuddyStorage = null;
 
             WorldMapRenderTexture.Release();
             MiniMapRenderingTexture.Release();

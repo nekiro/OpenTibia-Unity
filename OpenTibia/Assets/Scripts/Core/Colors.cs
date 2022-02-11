@@ -14,6 +14,8 @@ namespace OpenTibiaUnity.Core
         public static Color DarkGreen = ColorFromRGB(0x40E040);
         public static Color Green = ColorFromRGB(0x00EB00);
         public static Color LightGreen = ColorFromRGB(0xB4F8B4);
+        public static Color Purple = ColorFromRGB(0xFF72FF);
+        public static Color Orange = ColorFromRGB(0xFFAE1A);
 
         public const int HSI_SI_VALUES = 7;
         public const int HSI_H_STEPS = 19;

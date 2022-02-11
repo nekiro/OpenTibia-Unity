@@ -117,6 +117,10 @@
         public const string CTX_VIEW_COPY_SELECTED = "Copy";
         public const string CTX_VIEW_COPY_MESSAGE = "Copy Message";
         public const string CTX_VIEW_SELECT_ALL = "Select All";
+        // ... | VIP
+        public const string CTX_VIP_ADD_VIP = "Add New Vip";
+        public const string CTX_VIP_EDIT_VIP = "Edit {0}";
+        public const string CTX_VIP_REMOVE_VIP = "Remove {0}";
 
         // Skills resources
         public const string SKILLS_LEVEL = "Level";

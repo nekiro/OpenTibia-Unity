@@ -1,4 +1,6 @@
-﻿namespace OpenTibiaUnity
+﻿using OpenTibiaUnity.Core;
+
+namespace OpenTibiaUnity
 {
     public static class OpenTibiaUnity
     {
@@ -17,7 +19,7 @@
         public static int DeltaTimeMillis { get => (int)(UnityEngine.Time.deltaTime * 1000); }
         public static bool Quiting { get; set; }
 
-        public static Core.GameManager GameManager { get => Core.GameManager.Instance; }
+        public static GameManager GameManager { get => GameManager.Instance; }
         public static Core.Communication.Game.ProtocolGame ProtocolGame {
             get => GameManager?.ProtocolGame;
             set { if (GameManager != null) GameManager.ProtocolGame = value; }
@@ -39,6 +41,7 @@
         public static Core.Magic.SpellStorage SpellStorage { get => GameManager?.SpellStorage; }
         public static Core.Store.StoreStorage StoreStorage { get => GameManager?.StoreStorage; }
         public static Core.Cyclopedia.CyclopediaStorage CyclopediaStorage { get => GameManager?.CyclopediaStorage; }
+        public static Core.BuddyList.BuddyStorage BuddyStorage { get => GameManager?.BuddyStorage; }
 
         public static int[] GetClientVersions() {
             return new int[] {
@@ -279,6 +282,8 @@
 #endif
             }
         }
+
+        public static object Core { get; internal set; }
 
         public static UI.Legacy.ObjectContextMenu CreateObjectContextMenu(UnityEngine.Vector3Int absolute,
             Core.Appearances.ObjectInstance lookObject, int lookObjectStackPos,

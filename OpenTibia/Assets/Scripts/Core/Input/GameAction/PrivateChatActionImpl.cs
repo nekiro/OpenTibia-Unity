@@ -16,11 +16,13 @@
         PrivateChatActionType _actionType;
         int _channelId;
         string _name;
+        bool _select;
 
-        public PrivateChatActionImpl(PrivateChatActionType actionType, int channelId, string name) {
+        public PrivateChatActionImpl(PrivateChatActionType actionType, int channelId, string name, bool select = true) {
             _actionType = actionType;
             _channelId = channelId;
             _name = name;
+            _select = select;
         }
 
         public void Perform(bool _ = false) {
@@ -44,8 +46,8 @@
                     var channel = chatStorage.GetChannel(chatStorage.OwnPrivateChannelId);
                     if (channel == null) {
                         protocolGame.SendOpenChannel();
-                    } else {
-                        // TODO select chat
+                    } else if (_select) {
+                        channel.Select();
                     }
 
                     break;
@@ -64,8 +66,8 @@
                     var channel = chatStorage.GetChannel(playerName);
                     if (channel == null) {
                         protocolGame.SendPrivateChannel(playerName);
-                    } else {
-                        // TODO select chat
+                    } else if (_select) {
+                        channel.Select();
                     }
 
                     break;

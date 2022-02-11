@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using OpenTibiaUnity.Core.BuddyList;
+using System.Collections.Generic;
+using UnityEngine;
 
 namespace OpenTibiaUnity.Core.Communication.Game
 {
@@ -16,8 +18,8 @@ namespace OpenTibiaUnity.Core.Communication.Game
                 notifyLogin = message.ReadBoolean();
             }
 
-            byte status = message.ReadUnsignedByte();
-            List<byte> groups;
+            BuddyStatus status = (BuddyStatus)message.ReadUnsignedByte();
+            List<byte> groups = null;
 
             if (OpenTibiaUnity.GameManager.GetFeature(GameFeature.GameBuddyGroups)) {
                 int count = message.ReadUnsignedByte();
@@ -26,13 +28,17 @@ namespace OpenTibiaUnity.Core.Communication.Game
                     groups.Add(message.ReadUnsignedByte());
                 }
             }
+
+            OpenTibiaUnity.BuddyStorage.AddBuddy(creatureId, new Buddy(creatureId, name, desc, icon, notifyLogin, status, groups));
         }
 
         private void ParseBuddyState(Internal.CommunicationStream message) {
             uint creatureId = message.ReadUnsignedInt();
-            byte state = 1;
+            BuddyStatus state = BuddyStatus.Online;
             if (OpenTibiaUnity.GameManager.GetFeature(GameFeature.GameLoginPending))
-                state = message.ReadUnsignedByte();
+                state = (BuddyStatus)message.ReadUnsignedByte();
+
+            OpenTibiaUnity.BuddyStorage.SetBuddyState(creatureId, state);
         }
 
         private void ParseBuddyLogout(Internal.CommunicationStream message) {

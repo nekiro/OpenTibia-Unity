@@ -14,6 +14,10 @@ namespace OpenTibiaUnity.Modules
         public Battle.BattleCreature BattleCreaturePrefab = null;
         public Battle.BattleWidget BattleWidgetPrefab = null;
 
+        [Header("Module.BuddyList")]
+        public BuddyList.BuddyListWidget BuddyListWidgetPrefab = null;
+        public BuddyList.BuddyEntry BuddyEntryPrefab = null;
+
         [Header("Module.Console")]
         public Console.ConsoleBuffer ConsoleBufferPrefab = null;
         public Console.ChannelTab ChannelTabPrefab = null;

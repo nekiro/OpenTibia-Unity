@@ -55,10 +55,9 @@ namespace OpenTibiaUnity.Modules.Battle
                     });
                 }
 
-                // TODO, this should only appear if this player isn't already on the vip list
-                if (true) {
-                    CreateTextItem(string.Format(TextResources.CTX_VIEW_ADD_BUDDY, _creature.Name), "TODO", () => {
-                        // TODO
+                if (OpenTibiaUnity.BuddyStorage.GetBuddy(_creature.Name) == null) {
+                    CreateTextItem(string.Format(TR.CTX_VIEW_ADD_BUDDY, _creature.Name), () => {
+                        OpenTibiaUnity.ProtocolGame.SendAddBuddy(_creature.Name);
                     });
                 }
 
