@@ -68,10 +68,5 @@ namespace OpenTibiaUnity.Modules.Console
 
             OpenTibiaUnity.ChatStorage.JoinChannel(channelId);
         }
-
-        public override void Hide() {
-            base.Hide();
-            OpenTibiaUnity.GameManager.InvokeOnMainThread(() => Destroy(gameObject));
-        }
     }
 }

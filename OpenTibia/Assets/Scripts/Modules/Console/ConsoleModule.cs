@@ -44,6 +44,7 @@ namespace OpenTibiaUnity.Modules.Console
         private Channel _activeChannel = null;
         private ChannelTab _activeChannelTab = null;
         private int _historyIndex = 0;
+        private ChannelSelectionWidget _channelSelectionWidget;
 
         protected override void Awake() {
             base.Awake();
@@ -72,9 +73,12 @@ namespace OpenTibiaUnity.Modules.Console
         }
 
         private void OnReceiveChannels(List<Channel> channels) {
-            var channelSelectionWidget = Instantiate(ModulesManager.Instance.ChannelSelectionWidgetPrefab);
-            channelSelectionWidget.Setup(channels);
-            channelSelectionWidget.Show();
+            if (!_channelSelectionWidget) {
+                _channelSelectionWidget = Instantiate(ModulesManager.Instance.ChannelSelectionWidgetPrefab);
+            }
+
+            _channelSelectionWidget.Setup(channels);
+            _channelSelectionWidget.Show();
         }
 
         private void OnAddChannel(Channel channel) {
