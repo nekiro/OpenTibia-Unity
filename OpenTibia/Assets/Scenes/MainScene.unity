@@ -27305,6 +27305,8 @@ MonoBehaviour:
     type: 3}
   ItemPanelPrefab: {fileID: 6775140846724436849, guid: 8e22dbaa2b36b4b49bfc550b8c1a495e,
     type: 3}
+  TogglePrefab: {fileID: 277118029611772684, guid: 7fa808f11ecb7be4ba1fd5fb3ff84e3c,
+    type: 3}
   LabelOnscreenText: {fileID: 597905023}
   LabelOnscreenMessage: {fileID: 892249452}
   BackgroundCanvas: {fileID: 1641567641}
