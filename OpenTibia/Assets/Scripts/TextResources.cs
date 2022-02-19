@@ -121,6 +121,11 @@
         public const string CTX_VIP_ADD_VIP = "Add New Vip";
         public const string CTX_VIP_EDIT_VIP = "Edit {0}";
         public const string CTX_VIP_REMOVE_VIP = "Remove {0}";
+        public const string CTX_VIP_SORT_BY_NAME = "Sort by name";
+        public const string CTX_VIP_SORT_BY_TYPE = "Sort by type";
+        public const string CTX_VIP_SORT_BY_STATUS = "Sort by status";
+        public const string CTX_VIP_HIDE_OFFLINE = "Hide offline vips";
+        public const string CTX_VIP_SHOW_GROUPS = "Show groups";
 
         // Skills resources
         public const string SKILLS_LEVEL = "Level";

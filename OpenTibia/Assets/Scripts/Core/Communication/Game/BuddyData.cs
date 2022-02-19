@@ -29,7 +29,7 @@ namespace OpenTibiaUnity.Core.Communication.Game
                 }
             }
 
-            OpenTibiaUnity.BuddyStorage.AddBuddy(creatureId, new Buddy(creatureId, name, desc, icon, notifyLogin, status, groups));
+            OpenTibiaUnity.BuddyStorage.AddBuddy(creatureId, new Buddy { Id = creatureId, Name = name, Desc = desc, Icon = icon, NotifyLogin = notifyLogin, Status = status, Groups = groups });
         }
 
         private void ParseBuddyState(Internal.CommunicationStream message) {

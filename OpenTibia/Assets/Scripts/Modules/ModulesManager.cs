@@ -17,6 +17,8 @@ namespace OpenTibiaUnity.Modules
         [Header("Module.BuddyList")]
         public BuddyList.BuddyListWidget BuddyListWidgetPrefab = null;
         public BuddyList.BuddyEntry BuddyEntryPrefab = null;
+        public BuddyList.BuddyListAddWidget BuddyListAddWidget = null;
+        public BuddyList.BuddyListEditWidget BuddyListEditWidget = null;
 
         [Header("Module.Console")]
         public Console.ConsoleBuffer ConsoleBufferPrefab = null;

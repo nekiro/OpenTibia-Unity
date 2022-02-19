@@ -37,7 +37,7 @@ namespace OpenTibiaUnity.Modules.Options
             CreateOption(TR.LEGACYOPTIONS_WINDOW_MOTD_TEXT, TR.LEGACYOPTIONS_WINDOW_MOTD_DESCRIPTION, ShowMOTD);
 
             if (newVersion >= 1010) {
-                CreateGreenOption(TextResources.LEGACYOPTIONS_WINDOW_GETPREMIUM_TEXT, TextResources.LEGACYOPTIONS_WINDOW_GETPREMIUM_DESCRIPTION, GetPremium);
+                CreateGreenOption(TR.LEGACYOPTIONS_WINDOW_GETPREMIUM_TEXT, TR.LEGACYOPTIONS_WINDOW_GETPREMIUM_DESCRIPTION, GetPremium);
             }
         }
 

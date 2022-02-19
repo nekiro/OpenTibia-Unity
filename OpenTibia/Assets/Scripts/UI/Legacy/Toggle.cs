@@ -69,10 +69,12 @@ namespace OpenTibiaUnity.UI.Legacy
         }
 
         private void UpdateLabelState(bool effect) {
-            if (effect)
-                _label.margin = new Vector4(1, 1, 0, 0);
-            else
-                _label.margin = new Vector4(0, 0, 0, 0);
+            if (_label) {
+                if (effect)
+                    _label.margin = new Vector4(1, 1, 0, 0);
+                else
+                    _label.margin = new Vector4(0, 0, 0, 0);
+            }
         }
 
         protected override void DoStateTransition(SelectionState state, bool instant) {

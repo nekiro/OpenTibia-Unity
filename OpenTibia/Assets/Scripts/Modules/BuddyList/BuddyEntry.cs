@@ -1,7 +1,6 @@
 ﻿using OpenTibiaUnity.Core.BuddyList;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 namespace OpenTibiaUnity.Modules.BuddyList
@@ -21,20 +20,23 @@ namespace OpenTibiaUnity.Modules.BuddyList
         public Buddy buddy {
             get => _buddy;
             set {
-                if (_buddy != value) {
-                    _buddy = value;
-                    UpdateInfo();
-                }
+                _buddy = value;
+                UpdateInfo();
             }
         }
 
         public new string name { get { return $"Buddy_{_buddy.Name}"; } internal set { } }
 
+        private void UpdateInfo() {
+            _nameLabel.text = _buddy.Name;
+            UpdateStatus();
+            UpdateIcon();
+        }
+
         public void UpdateStatus() {
             Color color = Core.Colors.Default;
 
-            switch (_buddy.Status)
-            {
+            switch (_buddy.Status) {
                 case BuddyStatus.Offline: color = Core.Colors.Red; break;
                 case BuddyStatus.Pending: color = Core.Colors.Orange; break;
                 case BuddyStatus.Training: color = Core.Colors.Purple; break;
@@ -45,10 +47,12 @@ namespace OpenTibiaUnity.Modules.BuddyList
             _nameLabel.color = color;
         }
 
-        private void UpdateInfo() {
-            _nameLabel.text = _buddy.Name;
-            UpdateStatus();
+        public void UpdateIcon() {
             _image.sprite = _textures[_buddy.Icon];
+        }
+
+        public void UpdateDesc(string desc) {
+            _buddy.Desc = desc;
         }
 
         public void OnPointerEnter(PointerEventData eventData) {

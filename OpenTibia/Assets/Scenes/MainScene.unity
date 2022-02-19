@@ -27360,6 +27360,10 @@ MonoBehaviour:
     type: 3}
   BuddyEntryPrefab: {fileID: 9205768519569395969, guid: a96305323cda4b747aa2c4e0f4aebc0b,
     type: 3}
+  BuddyListAddWidget: {fileID: 225870424764269084, guid: 8158c83777e640a4da5d298d19401c1a,
+    type: 3}
+  BuddyListEditWidget: {fileID: 3270344802242652281, guid: 683df7a5b51d0c340bbe8ba2e31ecbe2,
+    type: 3}
   ConsoleBufferPrefab: {fileID: 3743432499786681876, guid: eb5d6fd91ee130f489760c14d86cd39c,
     type: 3}
   ChannelTabPrefab: {fileID: 2140817804705124831, guid: c0113a01c9854164c9f02230a137909c,
@@ -41657,6 +41661,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ConsolePanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 3706573398821905202, guid: 014aaf97446bcff42a2a92203c16e73b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6863981495585134887, guid: 014aaf97446bcff42a2a92203c16e73b,
         type: 3}

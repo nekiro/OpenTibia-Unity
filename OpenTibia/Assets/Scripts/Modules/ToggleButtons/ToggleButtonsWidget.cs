@@ -168,7 +168,7 @@ namespace OpenTibiaUnity.Modules.ToggleButtons
             if (_messageWidget != null)
                 _messageWidget.Hide();
 
-            _messageWidget = UI.Legacy.MessageWidget.CreateYesNoPopUp(transform.parent, "Logout", "Are you sure you want to logout?", OnPopupYesClick, OnPopupNoClick);
+            _messageWidget = UI.Legacy.MessageWidget.CreateYesNoPopUp(transform.parent, "Warning", "Are you sure you want to leave Tibia?", OnPopupYesClick, OnPopupNoClick);
             _messageWidget.maxSize = new Vector2(500, 250);
         }
 

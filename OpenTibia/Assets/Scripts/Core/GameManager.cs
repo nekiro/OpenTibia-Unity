@@ -58,6 +58,7 @@ namespace OpenTibiaUnity.Core
         public GameObject ContextMenuItemPrefab = null;
         public UI.Legacy.CheckboxPanel PanelCheckBox = null;
         public UI.Legacy.ItemPanel ItemPanelPrefab = null;
+        public UI.Legacy.Toggle TogglePrefab = null;
 
         // Utility objects for rendering
         [Header("Utility Invariants")]

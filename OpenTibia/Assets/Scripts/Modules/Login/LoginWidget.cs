@@ -8,6 +8,7 @@ using UnityUI = UnityEngine.UI;
 
 namespace OpenTibiaUnity.Modules.Login
 {
+    [DisallowMultipleComponent]
     public class LoginWidget : UI.Legacy.PopUpBase
     {
         // Serializable Fields
