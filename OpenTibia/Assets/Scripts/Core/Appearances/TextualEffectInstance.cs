@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Linq;
 
 using CommandBuffer = UnityEngine.Rendering.CommandBuffer;
 
@@ -100,7 +101,7 @@ namespace OpenTibiaUnity.Core.Appearances
                 var textMesh = textComponent.textInfo.meshInfo[0]; // clearly, there are no submeshes
                 _mesh.vertices = textMesh.vertices;
                 _mesh.normals = textMesh.normals;
-                _mesh.uv = textMesh.uvs0;
+                _mesh.uv = textMesh.uvs0.Select(v => new Vector2(v.x, v.y)).ToArray();
                 _mesh.uv2 = textMesh.uvs2;
                 _mesh.triangles = textMesh.triangles;
                 _mesh.tangents = textMesh.tangents;
